@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+
+#rcornersreview {
+  border-radius: 5px;
+  display: inline-block;
+  background: #663399;
+  padding:15px;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  margin-left:4px;
+  margin-top: 4px;
+  text-align: center;
+    
+}
+
+
+#rcornersansweredreview {
+  border-radius: 5px;
+  display: inline-block;
+  background: #df80ff;
+  padding:15px;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  margin-left:4px;
+  margin-top: 4px;
+  text-align: center;
+    
+}
+
+
+#rcornersanswered {
+  border-radius: 5px;
+  display: inline-block;
+  background: #b8dc6f;
+  padding:15px;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  margin-left:4px;
+  margin-top: 4px;
+  text-align: center;
+    
+}
+
+
+#rcorners1 {
+  border-radius: 5px;
+  display: inline-block;
+  background: #E6E6FA;
+  padding:15px;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  margin-left:4px;
+  margin-top: 4px;
+  text-align: center;
+    
+}
+
+
+#rcornersnotanswered {
+  border-radius: 5px;
+  display: inline-block;
+  background: #ff0000;
+  padding:15px;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  margin-left:4px;
+  margin-top: 4px;
+  text-align: center;
+    
+}
+

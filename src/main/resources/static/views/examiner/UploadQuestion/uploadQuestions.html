@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myngCsv">
+
+<head>
+  <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+  <link rel="stylesheet" href="../../../css/app/navigator.css" />
+  <script src="../../../js/lib/angular.min.js"></script>
+  <script src="../../../css/lib/bootstrap.min.css"></script>
+  <script src="../../../js/examinerController/csvToJson.js"></script>
+
+  <title>Upload Question</title>
+</head>
+
+<body ng-controller="ngcsvCtrl">
+  <div class="topnav">
+    <a href="../examiner.html">Home</a>
+    <a href="../NewTest.html">New Test</a>
+    <a href="../ExamineeProfile.html">Examinee Profile</a>
+    <a href="../PendingApprovals.html">Pending Approvals</a>
+    <a class="active" href="uploadQuestions.html">Upload Questions</a>
+    <a href="../ManageQuestions.html">Manage Questions</a>
+    <a href="../History.html">History</a>
+    <a href="changePassword.html">Change Password</a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a>welcome</a>
+  </div>
+  <div class="topnav">
+    <a class="active" href="uploadQuestions.html">Bulk Upload</a>
+    <a href="CreateQuestion.html">Create Question</a>
+  </div>
+  <input type="file" data-file-reader-directive="fileContent" accept=".csv" />
+  <input type='button' value="Upload" ng-click="uploadFile();jsonUpload()">
+  <div>{{ fileData }}</div>
+  <br>
+  <div> {{ message}}</div>
+</body>
+
+</html>

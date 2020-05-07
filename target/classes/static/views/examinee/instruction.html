@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="dbs_Exam_demo.js?1"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="../../js/lib/angular.min.js"></script>
+  <script src="../../js/examineeController/instruction.js"></script>
+  <link rel="stylesheet" href="../../css/lib/bootstrap.min.css">
+
+  <title>Instructions</title>
+
+</head>
+
+<body ng-app="instruction">
+  <div ng-controller="instr">
+    <div ng-init="loadSessionData()"></div>
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">
+        <img src="image/img_1.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Online Examination
+      </a>
+    </nav>
+    <div>
+      <table width="80%" style="display: inline-block; border: 1px solid; float: left; ">
+        <tr width="100%">
+          <td width="80%">
+
+            <p align="center">
+              <b>Instructions</b>
+            </p>
+
+            <div style="max-height:470px;overflow:auto;border-style: solid;border-color: #ABABAB;border-width:1px; border:1px solid-black">
+
+              <ul>
+                <li>This examination will comprise of 100 Multiple Choice Questions of 90 minutes duration. Each Question will
+                  carry 2 marks.</li>
+                <li>The candidate can go to any question directly by clicking on the question number, which will appear at the
+                  left of the screen.</li>
+                <li>The answered question will be marked green and the unanswered / skipped question numbers will remain in grey.</li>
+                <li>Every question is followed by four answer options. Choose the answer option that is most appropriate by clicking
+                  on the circle adjacent to that option.</li>
+                <li>In case of any doubt on the answer, the candidate can mark that question for review by checking the checkbox
+                  for Mark for Review above question number. This action will change the question number in left panel to
+                  Blue.
+                </li>
+                <li>This mark will be unmarked only when the candidate comes back to this question and clear the Mark for Review
+                  checkbox. This action will change the question number in left panel to Grey if it remain unanswered or
+                  Green if it has been answered.</li>
+                <li>If you want to change answer to any question any time after answering it, you may select the question number
+                  and change the answer by clicking on the available option.</li>
+                <li>Only question for which the answer is saved or marked for review after answering will be considered for evaluation.</li>
+                <li>The examination closes automatically once the allotted time is over.</li>
+                <li>On the completion of examination, number of questions attempted and unattempted will be displayed in summary.</li>
+                <li>After end of 30 minutes and 60 minutes from the exam start time an alert will be shown on top of the screen
+                  in red color to inform the time consumed/remaining for the exam.</li>
+              </ul>
+
+
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" style="display: inline-block; border: 1px solid;float:right" align="right">
+
+        <tr width="100%">
+
+          <p align="middle">
+            <b>Profile</b>
+          </p>
+          <br/>
+
+          <img src="image/img_3.jpg" height="100" width="100" align="middle" hspace="80"></img>
+          <br/>
+
+
+          <br/>
+          <p align="middle">Name: {{loggedUser}}</p>
+
+
+
+
+        </tr>
+
+      </table>
+
+      <table>
+        <tr>
+          <td style="width:90%;color:#003AFF;">
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                I have read and understood the instructions. All computer hardware allotted to me are in proper working condition.
+              </label>
+            </div>
+
+            <td align="right">
+              <button type="button" class="btn btn-primary btn-sm" style="margin-left: 133px; width: 160px;height:40px; 
+                            background-position: left; background-repeat: no-repeat;" ng-click="startTest()">I am ready to begin</button>
+            </td>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</body>
+
+</html>

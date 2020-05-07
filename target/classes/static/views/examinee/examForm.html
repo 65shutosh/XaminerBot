@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/app/Newtest.css">
+    <link href="../../css/lib/bootstrap-theme.css" rel="stylesheet">
+    <link href="../../css/lib/bootstrap.min.css" rel="stylesheet">
+    <script src="../../js/lib/angular.min.js"></script>
+    <script src="../../js/examineeController/examForm.js"></script>
+    <link rel="stylesheet" href="../../css/app/exam.css">
+
+
+
+    <title>
+        Online Examintaion
+    </title>
+</head>
+
+
+
+
+<body ng-app="instruction">
+    <div ng-controller="instr">
+        <div ng-init="loadSessionData()"></div>
+        <div ng-init="loadTestDetails()"></div>
+
+        <form name="frmExam">
+            <!--Exam Screen -->
+            <div id="divExamScreen" class="table-wrapper-scroll-y">
+                <!-- Image and text -->
+                <nav class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="#">
+                        <img src="" width="30" height="30" class="d-inline-block align-top" alt=""> Online Examination
+                    </a>
+                </nav>
+                <nav class="navbar sticky-top navbar-dark bg-dark">
+                    <span class="navbar-brand mb-0"></span>
+
+                </nav>
+
+                <table width="80%" border="1" align="left">
+
+
+                    <tr>
+                        <td align="left" style="font-weight: bold;color: #00008B;font-size:12px;">
+                            <span id="section" align="left">Section</span>
+
+                            <span id="clock" align="right" style="float:right">Time Left: 00:90:00</span>
+                        </td>
+
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination pagination-sm">
+                                    <!-- <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                 <li class="page-item">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li> 
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </nav>
+                        </td>
+                    </tr>
+
+
+                    <tr style="border:1px solid-black;">
+                        <td colspan="4">
+                            <table width="100%" style="margin-left: 0px; border-spacing: 0px; border: 0px;" align="left">
+                                <tr>
+
+                                    <td style="width: 100%">
+                                        <div style="max-height:400px;overflow:scroll;border-style: solid;border-color: #ABABAB;border-width:1px; border:1px solid-black">
+                                            <table style="width: 100%">
+
+                                                <tr>
+
+                                                    <td style="width: 555px;display:none;" align="right">
+                                                        Select Section:
+                                                        <select name="SectionSelect" onchange="return fnSelectionChange()">
+                                                            <option value="1">Section 1</option>
+
+                                                        </select>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td id="tdQuestion" colspan="2" style="vertical-align: top; border-width: 2px; border-style: solid;
+                                            border-color: rgb(150,151,156); height: 400px;">
+
+                                                        <div>
+                                                            <label id="lblQuestion">
+                                                                Question : {{questionTest}} 
+                                                            </label>
+                                                        </div>
+                                                        <br/>
+                                                        <br/>
+                                                        <div ng-repeat="exdata in AnswerText">
+                                                            <input style="width: 20px; margin-left: 0px;vertical-align: middle;" type="radio" name="option" value="1" id="radOpt1" />
+                                                            <label id="lblOpt1">1 : {{exdata[0].answerText}} </label>
+                                                            <br />
+                                                            <input style="width: 20px; margin-left: 0px;vertical-align: middle;" type="radio" name="option" value="2" id="radOpt2" />
+                                                            <label id="lblOpt2">2 : {{exdata[1].answerText}}</label>
+                                                            <br />
+                                                            <input style="width: 20px; margin-left: 0px;vertical-align: middle;" type="radio" name="option" value="3" id="radOpt3" />
+                                                            <label id="lblOpt3">3 : {{exdata[2].answerText}}</label>
+                                                            <br />
+                                                            <input style="width: 20px; margin-left: 0px;vertical-align: middle;" type="radio" name="option" value="4" id="radOpt4" />
+                                                            <label id="lblOpt4">4 : {{exdata[3].answerText}}</label>
+                                                            <br />
+                                                            <!--<input style="width: 20px; margin-left: 0px;vertical-align: middle;" type="radio" name="option" value="5"
+                                                id="radOpt5" /><label id="lblOpt5">Option1</label>-->
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+
+                                            </table>
+
+                            </table>
+                            </div>
+                            </td>
+                            </tr>
+                </table>
+
+
+                <table width="20%" style="margin-left: 0px; border-spacing: 0px; border: 0px;" align="right">
+                    <tr>
+
+                        <td style="width: 100%">
+                            <table style="width: 100%">
+                                <tr width="100%">
+                                    <div style="max-height:160px;overflow:scroll;border-style: solid;border-color: #ABABAB;border-width:1px; border:1px solid-black">
+
+                                        <img src="" height="100" width="100" align="left"></img>
+                                        <br/>
+                                        <span>Id: {{loggedUserId}}</span>
+                                        <br>
+                                        <span id="name">Name:{{loggedUser}}</span>
+                                        <a href="" target="_self">
+                                            <font size="2">
+                                                <u></u>
+                                            </font>
+                                        </a>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td style="hor-align: top;" width="160" bgcolor="#E0FFFF">
+                                        <div id="divSectionName" class="p-1 mb-1 bg-primary text-white">
+                                            Section 1:
+                                        </div>
+                                        <div id="divSectionQuestions" style="max-height:320px;overflow:scroll;border-style: solid;border-color: #ABABAB;border-width:1px; border:1px solid-black">
+                                            <label class="QLable" id="Q1" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcornersreview">1</span>
+                                            </label>
+                                            <label class="QLable" id="Q2" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcornersansweredreview">2</span>
+                                            </label>
+                                            <label class="QLable" id="Q3" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcornersanswered">3</span>
+                                            </label>
+                                            <label class="QLable" id="Q4" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">4</span>
+                                            </label>
+                                            <label class="QLable" id="Q5" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcornersnotanswered">5</span>
+                                            </label>
+                                            <label class="QLable" id="Q6" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">6</span>
+                                            </label>
+                                            <label class="QLable" id="Q7" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">7</span>
+                                            </label>
+                                            <label class="QLable" id="Q8" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">8</span>
+                                            </label>
+                                            <label class="QLable" id="Q9" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">9</span>
+                                            </label>
+                                            <label class="QLable" id="Q10" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">10</span>
+                                            </label>
+                                            <label class="QLable" id="Q11" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">11</span>
+                                            </label>
+                                            <label class="QLable" id="Q12" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">12</span>
+                                            </label>
+                                            <label class="QLable" id="Q13" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">13</span>
+                                            </label>
+                                            <label class="QLable" id="Q14" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">14</span>
+                                            </label>
+                                            <label class="QLable" id="Q15" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">15</span>
+                                            </label>
+                                            <label class="QLable" id="Q16" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">16</span>
+                                            </label>
+                                            <label class="QLable" id="Q17" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">17</span>
+                                            </label>
+                                            <label class="QLable" id="Q18" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">18</span>
+                                            </label>
+                                            <label class="QLable" id="Q19" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">19</span>
+                                            </label>
+                                            <label class="QLable" id="Q20" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">20</span>
+                                            </label>
+                                            <label class="QLable" id="Q21" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">21</span>
+                                            </label>
+                                            <label class="QLable" id="Q22" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">22</span>
+                                            </label>
+                                            <label class="QLable" id="Q23" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">23</span>
+                                            </label>
+                                            <label class="QLable" id="Q24" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">24</span>
+                                            </label>
+                                            <label class="QLable" id="Q25" onclick="return fnQuestionLabelClicked(this)">
+                                                <span id="rcorners1">25</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="float:center" align="middle">
+                                        <button type="button" class="btn btn-success btn-sm btn-sm" ng-click="submit()">Submit</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table align="left">
+                    <tr>
+                        <td style="float:left">
+                            <button type="button" class="btn btn-primary btn btn-sm" ng-click="review()">Mark for Review & Next</button>
+                            <button type="button" class="btn btn-primary btn-sm" ng-click="clearResponse()">Clear Response</button>
+                        </td>
+                    </tr>
+                </table>
+                <table align="right">
+                    <tr>
+                        <td style="float:right" align="right">
+                            <button type="button" class="btn btn-primary btn-sm" ng-click="pre()">Prev</button>
+                            <button type="button" class="btn btn-primary btn-sm" ng-click="next()">Save & Next</button>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+
+</html>

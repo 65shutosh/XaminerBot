@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="../../../css/app/navigator.css">
+    <script src="../../js/lib/angular.min.js"></script>
+  <script src="../../../js/examinerController/"></script>
+  <link href="../../css/lib/bootstrap-theme.css" rel="stylesheet">
+  <link href="../../css/lib/bootstrap.min.css" rel="stylesheet">
+
+    <title>Examiner</title>
+</head>
+
+<body ng-app="createQuestion">
+    <div ng-controller="questionCreate">
+        <div ng-init="loadSessionData()"></div>
+        <div class="topnav">
+            <a href="../examiner.html">Home</a>
+            <a href="../NewTest.html">New Test</a>
+            <a href="../ExamineeProfile.html">Examinee Profile</a>
+            <a href="../PendingApprovals.html">Pending Approvals</a>
+            <a href="uploadQuestions.html">Upload Questions</a>
+            <a href="../ManageQuestions.html">Manage Questions</a>
+            <a href="../History.html">History</a>
+            <a href="changePassword.html">Change Password</a>
+            <a></a>
+            <a></a>
+            <a></a>
+            <a></a>
+            <a></a>
+            <a></a>
+            <a>welcome {{loggedUser}}</a>
+        </div>
+        <div class="topnav">
+            <a href="uploadQuestions.html">Bulk Upload</a>
+            <a class="active" href="CreateQuestion.html">Create Question</a>
+        </div>
+    </div>
+</body>
+
+</html>

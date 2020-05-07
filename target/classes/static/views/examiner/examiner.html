@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet" href="../../css/app/navigator.css">
+  <link rel="stylesheet" href="../../css/app/Newtest.css">
+  <link href="../../css/lib/bootstrap-theme.css" rel="stylesheet">
+  <link href="../../css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/lib/bootstrap-theme.css" rel="stylesheet">
+  <script src="../../js/lib/angular.min.js"></script>
+  <script src="../../js/examinerController/examinerHome.js"></script>
+
+  <title>Examiner</title>
+</head>
+
+<body ng-app="examinerHome">
+  <div ng-controller="homeOfExaminer">
+    <div ng-init="getUserSubject()"></div>
+    <div ng-init="loadSessionData()"></div>
+    <div ng-init="loadAvailableTests()"></div>
+    <div class="topnav">
+      <a class="active" href="examiner.html">Home</a>
+      <a href="NewTest.html">New Test</a>
+      <a href="ExamineeProfile.html">Examinee Profile</a>
+      <a href="PendingApprovals.html">Pending Approvals</a>
+      <a href="UploadQuestion/uploadQuestions.html">Upload Questions</a>
+      <a href="ManageQuestions.html">Manage Questions</a>
+      <a href="History.html">History</a>
+      <a href="changePassword.html">Change Password</a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a>welcome {{loggedUser}}</a>
+    </div>
+    <div align="center">
+      <h1>Available Tests for {{subject}}</h1>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form ng-submit="addNew()">
+                <div ng-if="availableTests">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" />
+                        </th>
+                        <th>Id</th>
+                        <th>Timestamp</th>
+                        <th>No of Questions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="exdata in availableTests">
+                        <td>
+                          <input type="checkbox" ng-model="selectedId" ng-click="takeId(this)" />
+                        </td>
+
+                        <td ng-model="userId">{{exdata[0]}}</td>
+
+                        <td>{{exdata[1]}}</td>
+
+                        <td>{{exdata[2]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="form-group">
+                    <input type="button" class="btn btn-primary addnew pull-right" ng-click="approve()" value="Make It Available For Examinee">
+                    <!-- <input type="submit" class="btn btn-primary addnew pull-right" value="Add New"> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

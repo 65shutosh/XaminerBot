@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet" href="../../css/app/navigator.css">
+  <link rel="stylesheet" href="../../css/app/Newtest.css">
+  <script src="../../js/lib/angular.min.js"></script>
+  <script src="../../js/examinerController/newTest.js"></script>
+  <link href="../../css/lib/bootstrap-theme.css" rel="stylesheet">
+  <link href="../../css/lib/bootstrap.min.css" rel="stylesheet">
+  
+  <title>New Test</title>
+</head>
+
+<body ng-app="newTest">
+  <div ng-controller="testNew">
+    <div ng-init="loadSessionData()"></div>
+    <div ng-init="loadTopics()"></div>
+    <div ng-init="loadTopicsId()"></div>
+    <div class="topnav">
+      <a href="examiner.html">Home</a>
+      <a class="active" href="NewTest.html">New Test</a>
+      <a href="ExamineeProfile.html">Examinee Profile</a>
+      <a href="PendingApprovals.html">Pending Approvals</a>
+      <a href="UploadQuestion/uploadQuestions.html">Upload Questions</a>
+      <a href="ManageQuestions.html">Manage Questions</a>
+      <a href="History.html">History</a>
+      <a href="changePassword.html">Change Password</a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a></a>
+      <a>welcome {{loggedUser}}</a>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <h2>Subject: {{examinerSubject}}</h2>
+          <h2>Create New Test </h2>
+
+          <br>
+          <br>
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <h4>Input the no of questions in test :</h4>
+            </li>
+            <li>
+              <a>
+                <input type="number" class="input-lg form-control" ng-model="noOfQuestions" placeholder="No of Questions">
+              </a>
+            </li>
+            <li>
+              <h4>Choose the topics for test :</h4>
+            </li>
+            <li>
+              <table class="table">
+                <tr ng-repeat="t in subjectTopics"  class="success">
+                  <td>
+                    <input type="checkbox" name="selectedTopics[]" value="{{t}}" ng-checked="selection.indexOf(t) > -1" ng-click="toggleSelection(t)"> {{t}}
+
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <input type="button" value="select" ng-click="selectedTopics()">
+            </li>
+          </ul>
+          <br>
+
+        </div>
+
+        <div class="col-sm-9">
+          <div>
+
+
+
+
+            <table border="1" class="table">
+              <span>Topics are in sequence</span>
+              <tbody ng-repeat="(topicId,questionText) in questionsOFSelectedTopics">
+                <br><br>
+                <tr class="danger">
+                  <th class="col-sm-1">Topic {{$index+1}}</th>
+                  <th class="col-sm-1">Question Number</th>
+                  <th class="col-sm-1">previously Used</th>
+                  <th class="col-sm-8">Question Text</th>
+                </tr>
+                <tr>
+
+
+                  <!-- <span>{{$index+1}}------------------------------------------------------------------------------------</span> -->
+                  <tr ng-repeat="questionDetail in questionText" class="info">
+
+                    <td>
+                      <input type="checkbox" name="selectedQuestions[]" value="{{questionDetail[0]}}" ng-checked="selection.indexOf(questionDetail[0]) > -1"
+                        ng-click="toggleQSelection(questionDetail[0])">
+                    </td>
+                    <td>{{$index+1}}</td>
+                    <td>{{questionDetail[2]}}</td>
+
+
+                    <td>{{questionDetail[1]}}</td>
+
+
+
+                  </tr>
+
+                </tr>
+              </tbody>
+            </table>
+
+
+
+
+            <br>
+            <input type="button" value="Create Test" ng-click="createTest()">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="container-fluid">
+      <p>Footer Text</p>
+    </footer>
+
+
+  </div>
+</body>
+
+</html>
